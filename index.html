@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KODEX // CO — Licencias Digitales & Software Original</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f3f1ea;
+  --surface: #ffffff;
+  --ink: #0f0f0f;
+  --muted: #52514e;
+  --accent: #ff3e00;
+  --acid: #d4ff00;
+  --cobalt: #0047ff;
+  --emerald: #00c853;
+  --amber: #ffb300;
+  --purple: #651fff;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --display: 'Syne', sans-serif;
+  --border: 2px solid var(--ink);
+  --shadow: 5px 5px 0px var(--ink);
+  --shadow-lg: 8px 8px 0px var(--ink);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(15, 15, 15, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; color: inherit; border: 0; background: none; }
+button { cursor: pointer; }
+
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+  border-left: var(--border);
+  border-right: var(--border);
+  background: var(--bg);
+}
+
+/* Topbar */
+.topbar {
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--border);
+}
+.topbar-left { display: flex; align-items: center; gap: 10px; }
+.pulse-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--acid);
+  display: inline-block;
+  box-shadow: 0 0 10px var(--acid);
+}
+.topbar-right { display: none; gap: 16px; align-items: center; }
+.topbar-tag {
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+}
+@media(min-width: 768px) { .topbar-right { display: flex; } }
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--surface);
+  border-bottom: var(--border);
+}
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+}
+@media(min-width: 960px) {
+  .nav-grid { grid-template-columns: 260px 1fr auto; }
+}
+.brand {
+  padding: 16px 24px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-right: var(--border);
+  background: var(--acid);
+}
+.brand-badge {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: var(--ink);
+  color: var(--acid);
+  padding: 3px 7px;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: none;
+  align-items: center;
+  padding: 0 28px;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.nav-links a {
+  padding: 6px 10px;
+  border: 2px solid transparent;
+  transition: .15s;
+}
+.nav-links a:hover {
+  background: var(--acid);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-2px, -2px);
+}
+@media(min-width: 960px) { .nav-links { display: flex; } }
+
+.nav-actions { display: flex; align-items: stretch; }
+.cart-trigger {
+  padding: 0 26px;
+  background: var(--accent);
+  color: #fff;
+  border-left: var(--border);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: .15s;
+}
+.cart-trigger:hover {
+  background: var(--ink);
+  color: var(--acid);
+}
+.cart-count {
+  background: var(--ink);
+  color: #fff;
+  padding: 3px 9px;
+  font-size: 0.78rem;
+  border: 1px solid #fff;
+}
+.mob-btn {
+  padding: 0 20px;
+  border-left: var(--border);
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+}
+@media(min-width: 960px) { .mob-btn { display: none; } }
+
+.mob-menu {
+  display: none;
+  flex-direction: column;
+  border-top: var(--border);
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a {
+  padding: 15px 22px;
+  border-bottom: 1px solid #ddd;
+}
+.mob-menu a:hover { background: var(--acid); }
+
+/* Hero Neo-Brutalista Colorido */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: var(--border);
+}
+@media(min-width: 980px) {
+  .hero { grid-template-columns: 1.3fr 0.7fr; }
+}
+.hero-main {
+  padding: 48px 24px;
+  background: var(--surface);
+  border-bottom: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+@media(min-width: 980px) {
+  .hero-main {
+    padding: 68px 52px;
+    border-bottom: 0;
+    border-right: var(--border);
+  }
+}
+.hero-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.sticker {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.st-orange { background: var(--accent); color: #fff; }
+.st-acid { background: var(--acid); color: var(--ink); }
+.st-blue { background: var(--cobalt); color: #fff; }
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(2.3rem, 5.2vw, 4.3rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+h1 mark {
+  background: var(--acid);
+  color: var(--ink);
+  padding: 0 10px;
+  border: var(--border);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hero-sub {
+  font-size: 1.08rem;
+  color: var(--muted);
+  font-weight: 500;
+  max-width: 580px;
+  margin-bottom: 36px;
+  line-height: 1.55;
+}
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.btn-brutal {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 16px 28px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  transition: transform .15s, box-shadow .15s, background .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-brutal.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-brutal.primary:hover {
+  background: var(--ink);
+  color: var(--acid);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+.btn-brutal.secondary {
+  background: var(--acid);
+  color: var(--ink);
+}
+.btn-brutal.secondary:hover {
+  background: var(--surface);
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Panel Derecho Colorido */
+.hero-side {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+.step-panel {
+  padding: 26px 30px;
+  border-bottom: var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.step-panel:last-child { border-bottom: 0; }
+.sp-1 { background: var(--cobalt); color: #fff; }
+.sp-2 { background: var(--acid); color: var(--ink); }
+.sp-3 { background: #161616; color: #fff; }
+
+.sp-num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border: 1.5px solid currentColor;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+.sp-title {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.sp-desc {
+  font-size: 0.86rem;
+  opacity: 0.9;
+}
+
+/* Cinta Marquee Animada */
+.marquee {
+  background: var(--ink);
+  color: var(--acid);
+  border-bottom: var(--border);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.marquee-track {
+  display: inline-block;
+  animation: scroll 28s linear infinite;
+}
+.marquee-track span {
+  margin: 0 24px;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Controles de Búsqueda y Categorías */
+.controls-section {
+  padding: 36px 24px 24px;
+}
+.sec-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.sec-title-row h2 {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+}
+.price-pill {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 6px 14px;
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.controls-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media(min-width: 900px) {
+  .controls-bar { grid-template-columns: 340px 1fr; }
+}
+.search-box {
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+}
+.search-box span {
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 0.8rem;
+  background: var(--ink);
+  color: #fff;
+  padding: 3px 7px;
+}
+.search-box input {
+  width: 100%;
+  outline: none;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.f-btn {
+  flex: none;
+  padding: 12px 18px;
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: .15s;
+}
+.f-btn:hover {
+  background: var(--acid);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.f-btn.on {
+  background: var(--ink);
+  color: var(--acid);
+}
+
+/* Grid de Tarjetas con Cabecera Colorida */
+.catalog-grid {
+  padding: 12px 24px 56px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+@media(min-width: 640px) { .catalog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(min-width: 1040px) { .catalog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.p-card {
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s;
+  position: relative;
+}
+.p-card:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+/* Banner Superior de Caja de Software */
+.p-banner {
+  height: 128px;
+  border-bottom: var(--border);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background-image: radial-gradient(rgba(255,255,255,0.22) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+.p-watermark {
+  position: absolute;
+  right: -8px;
+  bottom: -18px;
+  font-family: var(--display);
+  font-size: 4.2rem;
+  font-weight: 800;
+  opacity: 0.16;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+  user-select: none;
+}
+.p-banner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.p-sku {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: rgba(15, 15, 15, 0.85);
+  color: #fff;
+  padding: 3px 8px;
+  border: 1px solid #fff;
+}
+.p-type {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  background: var(--acid);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.p-logo-box {
+  width: 48px;
+  height: 48px;
+  background: var(--surface);
+  color: var(--ink);
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+}
+.p-logo-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.p-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.p-title {
+  font-size: 1.14rem;
+  font-weight: 800;
+  line-height: 1.28;
+  margin-bottom: 14px;
+}
+.p-specs {
+  list-style: none;
+  margin-bottom: 20px;
+  border-top: 1.5px dashed #ccc;
+  padding-top: 12px;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+.p-specs li {
+  display: flex;
+  justify-content: space-between;
+}
+.p-specs li strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.p-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.p-price-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+}
+.p-price {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.p-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-direct {
+  width: 44px;
+  height: 44px;
+  border: var(--border);
+  background: var(--acid);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  transition: .15s;
+}
+.btn-direct:hover {
+  background: var(--emerald);
+  color: #fff;
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn-add {
+  padding: 0 18px;
+  height: 44px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: var(--border);
+  box-shadow: 3px 3px 0 var(--accent);
+  transition: .15s;
+}
+.btn-add:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: translate(-2px, -2px);
+}
+
+/* Soporte Brutalista */
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+@media(min-width: 900px) {
+  .support-grid { grid-template-columns: 1.1fr 0.9fr; }
+}
+.sup-col-left {
+  padding: 48px 36px;
+  background: var(--emerald);
+  color: var(--ink);
+  border-bottom: var(--border);
+}
+@media(min-width: 900px) {
+  .sup-col-left {
+    border-bottom: 0;
+    border-right: var(--border);
+  }
+}
+.sup-col-left h2 {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.sup-col-left p {
+  font-weight: 600;
+  max-width: 480px;
+  font-size: 1rem;
+}
+.sup-col-right {
+  padding: 44px 36px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+.c-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  font-weight: 800;
+  transition: .15s;
+}
+.c-link.wa { background: var(--acid); color: var(--ink); }
+.c-link.mail { background: var(--bg); color: var(--ink); }
+.c-link:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--shadow-lg);
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 56px 28px 32px;
+}
+.f-grid {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: 1fr;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #333;
+}
+@media(min-width: 768px) {
+  .f-grid { grid-template-columns: 1.5fr 1fr 1.3fr 1fr; }
+}
+footer h4 {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--acid);
+  margin-bottom: 14px;
+}
+footer ul { list-style: none; display: grid; gap: 8px; font-size: 0.9rem; }
+footer a:hover { color: var(--acid); text-decoration: underline; }
+.pay-box {
+  border: 2px solid var(--acid);
+  padding: 14px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  background: #1a1a18;
+}
+.f-bottom {
+  max-width: 1260px;
+  margin: 24px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: #9e9c96;
+}
+
+/* Carrito Lateral */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(15, 15, 15, 0.65);
+  opacity: 0; pointer-events: none;
+  transition: .25s; z-index: 50;
+}
+.overlay.on { opacity: 1; pointer-events: auto; }
+
+aside {
+  position: fixed; top: 0; right: 0;
+  height: 100%; width: min(440px, 100%);
+  background: var(--bg);
+  border-left: 3px solid var(--ink);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform .3s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column;
+}
+aside.on { transform: none; }
+.cart-head {
+  padding: 20px 24px;
+  border-bottom: var(--border);
+  background: var(--acid);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-weight: 800; text-transform: uppercase;
+}
+.cart-items {
+  flex: 1; overflow-y: auto; padding: 20px 24px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.cart-item {
+  background: var(--surface);
+  border: var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 14px;
+  display: flex; justify-content: space-between; gap: 12px;
+}
+.ci-info b { font-size: 0.92rem; display: block; margin-bottom: 4px; }
+.ci-info span { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-weight: 700; }
+.ci-qty {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px;
+  font-family: var(--mono); font-size: 0.82rem; font-weight: 800;
+}
+.ci-qty button {
+  width: 28px; height: 28px;
+  border: var(--border);
+  background: var(--acid);
+  font-weight: 800;
+}
+.cart-foot {
+  padding: 22px 24px;
+  border-top: var(--border);
+  background: var(--surface);
+}
+.cart-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--mono); font-size: 1.25rem; font-weight: 800;
+  margin-bottom: 14px;
+}
+.btn-checkout {
+  width: 100%; padding: 16px;
+  background: var(--accent); color: #fff;
+  font-family: var(--mono); font-weight: 800; font-size: 0.88rem;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  border: var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: .15s;
+}
+.btn-checkout:hover {
+  background: var(--ink);
+  color: var(--acid);
+}
+.btn-checkout:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+
+/* Modal Legal */
+.modal-ov {
+  position: fixed; inset: 0;
+  background: rgba(15, 15, 15, 0.78);
+  z-index: 80; display: grid; place-items: center; padding: 20px;
+  opacity: 0; pointer-events: none; transition: .2s;
+}
+.modal-ov.on { opacity: 1; pointer-events: auto; }
+.modal {
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--acid);
+  max-width: 700px; width: 100%; max-height: 85vh;
+  display: flex; flex-direction: column;
+}
+.modal-h {
+  padding: 18px 24px; border-bottom: var(--border);
+  background: var(--acid);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-weight: 800; text-transform: uppercase; font-size: 0.9rem;
+}
+.modal-b {
+  padding: 24px; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 14px;
+  font-size: 0.92rem; line-height: 1.6;
+}
+.modal-b h4 {
+  font-family: var(--mono); text-transform: uppercase; font-size: 0.85rem;
+  margin-top: 6px; background: var(--ink); color: var(--acid);
+  padding: 4px 10px; width: fit-content;
+}
+.legal-id {
+  background: var(--bg); border: var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 14px 18px; font-family: var(--mono); font-size: 0.8rem;
+}
+
+#toast {
+  position: fixed; right: 24px; bottom: 24px;
+  background: var(--acid); color: var(--ink);
+  border: var(--border);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 12px 20px; font-family: var(--mono); font-size: 0.82rem; font-weight: 800;
+  transform: translateY(30px); opacity: 0; pointer-events: none; transition: .2s; z-index: 90;
+}
+#toast.on { transform: translateY(0); opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <i class="pulse-dot"></i>
+      <span>STOCK ACTIVO EN COLOMBIA · ENTREGA EN 5–15 MIN</span>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-tag">PAGO ÚNICO VÍA WHATSAPP</span>
+      <span>+57 321 494 9594</span>
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <header>
+    <div class="nav-grid">
+      <a href="#inicio" class="brand">
+        KODEX <span class="brand-badge">CO</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#catalogo" data-f="all">Catálogo [13]</a>
+        <a href="#catalogo" data-f="sistema">Windows / Office</a>
+        <a href="#catalogo" data-f="seguridad">Antivirus / VPN</a>
+        <a href="#catalogo" data-f="diseno">Canva / Streaming</a>
+        <a href="#catalogo" data-f="juegos">Gaming</a>
+        <a href="#soporte">Soporte</a>
+        <a href="#terminos" class="open-legal">Términos</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-trigger" id="openCart">
+          <span>Carrito</span>
+          <span class="cart-count" id="count">0</span>
+        </button>
+        <button class="mob-btn" id="mobBtn" aria-label="Menú">☰</button>
+      </div>
+    </div>
+    <div class="mob-menu" id="mobMenu">
+      <a href="#catalogo" data-f="all">Todos los Productos [13]</a>
+      <a href="#catalogo" data-f="sistema">Windows & Office</a>
+      <a href="#catalogo" data-f="seguridad">Antivirus & VPN</a>
+      <a href="#catalogo" data-f="diseno">Canva Pro & Crunchyroll</a>
+      <a href="#catalogo" data-f="juegos">Videojuegos (GTA V, FC 26, Minecraft)</a>
+      <a href="#soporte">Soporte Directo</a>
+      <a href="#terminos" class="open-legal">Términos y Condiciones</a>
+    </div>
+  </header>
+
+  <!-- Hero Colorido -->
+  <section class="hero" id="inicio">
+    <div class="hero-main">
+      <div class="hero-stickers">
+        <span class="sticker st-orange">CLAVES 100% GLOBALES</span>
+        <span class="sticker st-acid">DESDE $8.000 COP</span>
+        <span class="sticker st-blue">ENTREGA INMEDIATA</span>
+      </div>
+      <h1>Licencias originales & gaming <mark>al instante.</mark></h1>
+      <p class="hero-sub">
+        Windows 11/10 Pro, Office 2024 & 2021 LTSC, Antivirus, NordVPN, Canva Pro, Crunchyroll 12 Meses, GTA V y EA Sports FC 26. Sin pasarelas complicadas: eliges tu producto y pagas directo por WhatsApp.
+      </p>
+      <div class="hero-btns">
+        <a href="#catalogo" class="btn-brutal primary">Ver los 13 Productos ↓</a>
+        <a href="https://wa.me/573214949594?text=Hola%20Edisson,%20vengo%20de%20la%20web%20KODEX%20y%20quiero%20comprar%20un%20producto." target="_blank" rel="noopener" class="btn-brutal secondary">Comprar por WhatsApp ↗</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="step-panel sp-1">
+        <span class="sp-num">PASO 01</span>
+        <div class="sp-title">Elige tu Licencia o Juego</div>
+        <p class="sp-desc">Agrega tus productos al carrito o usa el botón de compra rápida (⚡) en cada ficha.</p>
+      </div>
+      <div class="step-panel sp-2">
+        <span class="sp-num">PASO 02</span>
+        <div class="sp-title">Pago Exclusivo por WhatsApp</div>
+        <p class="sp-desc">Tu orden se envía automáticamente a nuestro chat oficial (+57 321 494 9594) para coordinar el pago.</p>
+      </div>
+      <div class="step-panel sp-3">
+        <span class="sp-num">PASO 03</span>
+        <div class="sp-title">Activación en Minutos</div>
+        <p class="sp-desc">Recibes tu clave OEM, enlace o cuenta verificada con garantía y soporte 1 a 1.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cinta Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>★ OFFICE 2024 PRO PLUS LTSC $35.000</span>
+      <span>★ GTA V GLOBAL ROCKSTAR KEY $50.000</span>
+      <span>★ CRUNCHYROLL 12 MESES FAN $35.000</span>
+      <span>★ WINDOWS 11 PRO OEM $25.000</span>
+      <span>★ OFFICE 2021 PRO PLUS LTSC $30.000</span>
+      <span>★ MINECRAFT REALMS PLUS $8.000</span>
+      <span>★ CANVA PRO 1 AÑO $25.000</span>
+      <span>★ EA SPORTS FC 26 STEAM $25.000</span>
+      <span>★ OFFICE 2024 PRO PLUS LTSC $35.000</span>
+      <span>★ GTA V GLOBAL ROCKSTAR KEY $50.000</span>
+      <span>★ CRUNCHYROLL 12 MESES FAN $35.000</span>
+      <span>★ WINDOWS 11 PRO OEM $25.000</span>
+      <span>★ OFFICE 2021 PRO PLUS LTSC $30.000</span>
+      <span>★ MINECRAFT REALMS PLUS $8.000</span>
+      <span>★ CANVA PRO 1 AÑO $25.000</span>
+      <span>★ EA SPORTS FC 26 STEAM $25.000</span>
+    </div>
+  </div>
+
+  <!-- Controles y Catálogo -->
+  <section id="catalogo">
+    <div class="controls-section">
+      <div class="sec-title-row">
+        <h2>Catálogo Disponible</h2>
+        <span class="price-pill">PRECIOS EN PESOS COLOMBIANOS (COP)</span>
+      </div>
+      <div class="controls-bar">
+        <div class="search-box">
+          <span>BUSCAR</span>
+          <input type="search" id="search" placeholder="GTA 5, Office 2024, Crunchyroll, Windows...">
+        </div>
+        <div class="filter-bar" id="filters">
+          <button class="f-btn on" data-f="all">Todos [13]</button>
+          <button class="f-btn" data-f="sistema">Windows / Office [4]</button>
+          <button class="f-btn" data-f="seguridad">Antivirus / VPN [4]</button>
+          <button class="f-btn" data-f="diseno">Canva / Streaming [2]</button>
+          <button class="f-btn" data-f="juegos">Videojuegos [3]</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-grid" id="grid"></div>
+  </section>
+
+  <!-- Soporte Directo -->
+  <section class="support-grid" id="soporte">
+    <div class="sup-col-left">
+      <span class="sticker st-acid" style="margin-bottom:14px;display:inline-block">SOPORTE HUMANO 1 A 1</span>
+      <h2>¿Necesitas ayuda con tu compra o activación?</h2>
+      <p>
+        Te acompaño personalmente durante la instalación de tu licencia o juego. Escríbeme directo a mi WhatsApp o envíame un correo electrónico.
+      </p>
+    </div>
+    <div class="sup-col-right">
+      <a href="https://wa.me/573214949594?text=Hola%20Edisson,%20necesito%20soporte%20con%20un%20producto%20de%20KODEX." target="_blank" rel="noopener" class="c-link wa">
+        <span>💬 WHATSAPP · +57 321 494 9594</span>
+        <span>INICIAR CHAT ↗</span>
+      </a>
+      <a href="mailto:edissonandregarciamoreno@gmail.com?subject=Soporte%20KODEX%20-%20Consulta&body=Hola%20Edisson,%20tengo%20una%20consulta:" class="c-link mail">
+        <span>✉️ edissonandregarciamoreno@gmail.com</span>
+        <span>ENVIAR CORREO ↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="f-grid">
+      <div>
+        <div class="brand" style="width:fit-content;padding:6px 14px;margin-bottom:14px;color:var(--ink)">
+          KODEX <span class="brand-badge">CO</span>
+        </div>
+        <p style="color:#b5b3ad;font-size:0.9rem;max-width:300px">
+          Tienda digital de licencias originales, ciberseguridad, diseño, streaming y videojuegos en Colombia.
+        </p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#terminos" class="open-legal">Términos y condiciones</a></li>
+          <li><a href="#privacidad" class="open-legal">Política de privacidad</a></li>
+          <li><a href="#garantia" class="open-legal">Garantía y reembolsos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Método de Pago</h4>
+        <div class="pay-box">
+          ÚNICA FORMA DE PAGO:<br>
+          <strong style="color:var(--acid)">DIRECTO POR WHATSAPP</strong><br>
+          <span style="font-size:0.74rem;color:#9e9c96">Atención personalizada e inmediata en nuestro chat oficial.</span>
+        </div>
+      </div>
+      <div>
+        <h4>Redes Oficiales</h4>
+        <ul>
+          <li><a href="https://wa.me/573214949594" target="_blank" rel="noopener">WhatsApp (+57 321 494 9594)</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 KODEX // CO. TODOS LOS DERECHOS RESERVADOS.</span>
+      <span>RESPONSABLE: EDISSON ANDREY GARCIA MORENO · C.C. 1.096.483.057</span>
+    </div>
+  </footer>
+</div>
+
+<!-- Carrito Lateral -->
+<div class="overlay" id="ov"></div>
+<aside id="panel" aria-label="Tu Carrito">
+  <div class="cart-head">
+    <span>Tu Pedido Digital</span>
+    <button id="closeCart">✕ CERRAR</button>
+  </div>
+  <div class="cart-items" id="items"></div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>TOTAL COP</span>
+      <span id="total">$0</span>
+    </div>
+    <button class="btn-checkout" id="pay">Finalizar Compra por WhatsApp →</button>
+  </div>
+</aside>
+
+<!-- Modal Legal -->
+<div class="modal-ov" id="legalModal">
+  <div class="modal" role="dialog">
+    <div class="modal-h">
+      <span>TÉRMINOS Y CONDICIONES LEGALES</span>
+      <button id="closeLegal">✕</button>
+    </div>
+    <div class="modal-b">
+      <div class="legal-id">
+        <strong>TITULAR Y RESPONSABLE DEL SITIO:</strong><br>
+        Nombre: Edisson Andrey Garcia Moreno<br>
+        Documento: C.C. 1.096.483.057<br>
+        WhatsApp Oficial de Ventas y Soporte: +57 321 494 9594<br>
+        Correo Electrónico: edissonandregarciamoreno@gmail.com
+      </div>
+      <h4>1. Información General</h4>
+      <p>El presente portal web es administrado por <strong>Edisson Andrey Garcia Moreno</strong>, identificado con C.C. 1.096.483.057. Al realizar un pedido, el cliente acepta las condiciones aquí estipuladas para la adquisición de claves de software, cuentas de suscripción y videojuegos digitales.</p>
+      <h4>2. Pago Exclusivo vía WhatsApp</h4>
+      <p>El único medio habilitado para coordinar y efectuar el pago de los productos del catálogo es nuestro canal directo de WhatsApp (<strong>+57 321 494 9594</strong>). No solicitamos datos de tarjetas dentro del sitio web.</p>
+      <h4>3. Entrega de Claves y Licencias</h4>
+      <p>Todos los artículos son 100% digitales (claves OEM/Retail, enlaces de activación o cuentas de acceso). Una vez comprobado el pago en WhatsApp, la entrega se realiza en un lapso de 5 a 30 minutos por el mismo chat o al correo del comprador.</p>
+      <h4>4. Garantía y Reembolsos</h4>
+      <p>Cada licencia y cuenta dispone de garantía total de activación y vigencia. Por tratarse de bienes digitales de uso único, una vez entregada la credencial o código no aplica derecho de retracto; no obstante, ante cualquier inconveniente técnico, <strong>Edisson Andrey Garcia Moreno</strong> garantiza soporte directo o el reemplazo inmediato sin costo.</p>
+      <h4>5. Privacidad de Datos</h4>
+      <p>La información suministrada por el usuario se emplea exclusivamente para el despacho de su compra y asistencia posventa conforme a la Ley 1581 de 2012 en Colombia.</p>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const ICONS = {
+  ms: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8.5v8.5H3V3zm9.5 0H21v8.5h-8.5V3zM3 12.5h8.5V21H3v-8.5zm9.5 0H21V21h-8.5v-8.5z"/></svg>`,
+  office: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 18V6l10-3v18l-10-3zm10 3l6-1.8V4.8L14 3v18z"/></svg>`,
+  mc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18"/><path d="M7 8h3v3H7zM14 8h3v3h-3zM10 11h4v5h-4zM8 14h2v4H8zM14 14h2v4h-2z"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>`,
+  canva: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5"/></svg>`,
+  vpn: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18l5-8 4 5 4-7 5 10H3z"/></svg>`,
+  fc: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><circle cx="12" cy="12" r="3"/></svg>`,
+  gta: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 5l8 15L20 5"/><path d="M8 5h8"/></svg>`,
+  crunchy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.4 2.6"/><circle cx="13.5" cy="12.5" r="3.5"/></svg>`
+};
+
+const P = [
+  {
+    id: 1,
+    sku: "KDX-W11P",
+    wm: "WIN11",
+    color: "#0047FF",
+    n: "Microsoft Windows 11 Pro Key OEM",
+    c: "sistema",
+    tipo: "OEM KEY",
+    plataforma: "PC (32/64 Bits)",
+    duracion: "Permanente (1 PC)",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.ms
+  },
+  {
+    id: 2,
+    sku: "KDX-OF24",
+    wm: "OFF24",
+    color: "#B91C1C",
+    n: "Microsoft Office 2024 Professional Plus LTSC Key",
+    c: "sistema",
+    tipo: "LTSC KEY",
+    plataforma: "Windows 10 / 11",
+    duracion: "Licencia LTSC 2024 (1 PC)",
+    region: "GLOBAL",
+    p: 35000,
+    icon: ICONS.office
+  },
+  {
+    id: 3,
+    sku: "KDX-OF21",
+    wm: "OFF21",
+    color: "#D83B01",
+    n: "Microsoft Office 2021 Pro Plus LTSC Product Key",
+    c: "sistema",
+    tipo: "PRODUCT KEY",
+    plataforma: "Windows 10 / 11",
+    duracion: "Licencia LTSC 2021 (1 PC)",
+    region: "GLOBAL",
+    p: 30000,
+    icon: ICONS.office
+  },
+  {
+    id: 4,
+    sku: "KDX-W10P",
+    wm: "WIN10",
+    color: "#0078D4",
+    n: "Microsoft Windows 10 Pro Key",
+    c: "sistema",
+    tipo: "PRODUCT KEY",
+    plataforma: "PC (32/64 Bits)",
+    duracion: "Permanente (1 PC)",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.ms
+  },
+  {
+    id: 5,
+    sku: "KDX-GTA5",
+    wm: "GTA V",
+    color: "#14532D",
+    n: "Grand Theft Auto V (GTA 5) Global Rockstar CD Key",
+    c: "juegos",
+    tipo: "ROCKSTAR KEY",
+    plataforma: "PC (Rockstar Games Launcher)",
+    duracion: "Juego Completo Permanente",
+    region: "GLOBAL",
+    p: 50000,
+    icon: ICONS.gta
+  },
+  {
+    id: 6,
+    sku: "KDX-FC26",
+    wm: "FC 26",
+    color: "#111827",
+    n: "EA SPORTS FC 26 (PC) - Cuenta Steam",
+    c: "juegos",
+    tipo: "STEAM ACCOUNT",
+    plataforma: "Steam (PC)",
+    duracion: "Juego Completo",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.fc
+  },
+  {
+    id: 7,
+    sku: "KDX-MCRP",
+    wm: "REALMS",
+    color: "#1B8A2E",
+    n: "Minecraft Realms Plus 1-Month Subscription",
+    c: "juegos",
+    tipo: "CD KEY",
+    plataforma: "Xbox One / Series X|S / PC",
+    duracion: "1 Mes",
+    region: "GLOBAL",
+    p: 8000,
+    icon: ICONS.mc
+  },
+  {
+    id: 8,
+    sku: "KDX-CR12",
+    wm: "ANIME",
+    color: "#F47521",
+    n: "Crunchyroll - 12 Months Fan Subscription",
+    c: "diseno",
+    tipo: "ACCOUNT 12M",
+    plataforma: "Smart TV / PC / Móvil / Consolas",
+    duracion: "12 Meses (Plan Fan)",
+    region: "GLOBAL",
+    p: 35000,
+    icon: ICONS.crunchy
+  },
+  {
+    id: 9,
+    sku: "KDX-CNV1",
+    wm: "CANVA",
+    color: "#651FFF",
+    n: "Canva Pro 1 Año - Enlace de Activación",
+    c: "diseno",
+    tipo: "ACTIVATION LINK",
+    plataforma: "Web / PC / iOS / Android",
+    duracion: "1 Año Completo",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.canva
+  },
+  {
+    id: 10,
+    sku: "KDX-MCAF",
+    wm: "MCAFEE",
+    color: "#C01818",
+    n: "McAfee AntiVirus PC (1 Dispositivo, 1 Año)",
+    c: "seguridad",
+    tipo: "CLAVE GLOBAL",
+    plataforma: "Windows PC",
+    duracion: "1 Año (1 Dispositivo)",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.shield
+  },
+  {
+    id: 11,
+    sku: "KDX-AVST",
+    wm: "AVAST",
+    color: "#FF5500",
+    n: "Avast Pro Antivirus PC (1 Dispositivo, 1 Año)",
+    c: "seguridad",
+    tipo: "AVAST KEY",
+    plataforma: "Windows PC",
+    duracion: "1 Año (1 Dispositivo)",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.shield
+  },
+  {
+    id: 12,
+    sku: "KDX-AVGA",
+    wm: "AVG PRO",
+    color: "#008060",
+    n: "AVG AntiVirus Pro (1 Dispositivo Android, 1 Año)",
+    c: "seguridad",
+    tipo: "AVG CLAVE",
+    plataforma: "Android",
+    duracion: "1 Año (1 Dispositivo)",
+    region: "GLOBAL",
+    p: 25000,
+    icon: ICONS.shield
+  },
+  {
+    id: 13,
+    sku: "KDX-NORD",
+    wm: "NORDVPN",
+    color: "#1F3A93",
+    n: "NordVPN Basic VPN Service (10 Dispositivos, 3 Meses)",
+    c: "seguridad",
+    tipo: "NORDVPN KEY",
+    plataforma: "PC, Android, Mac, iOS",
+    duracion: "3 Meses (10 Dispositivos)",
+    region: "GLOBAL",
+    p: 30000,
+    icon: ICONS.vpn
+  }
+];
+
+const WHATSAPP_NUMBER = "573214949594";
+const $ = s => document.querySelector(s);
+const fmt = n => new Intl.NumberFormat("es-CO", {style:"currency", currency:"COP", maximumFractionDigits:0}).format(n);
+
+let cart = [], filter = "all", query = "";
+try {
+  const saved = JSON.parse(localStorage.getItem("kdx_cart_v4") || "[]");
+  cart = saved.filter(i => P.some(p => p.id === i.id));
+} catch(e) { cart = []; }
+
+function save() { try { localStorage.setItem("kdx_cart_v4", JSON.stringify(cart)); } catch(e) {} }
+
+function renderGrid() {
+  const list = P.filter(p =>
+    (filter === "all" || p.c === filter) &&
+    (p.n.toLowerCase().includes(query.toLowerCase()) || p.sku.toLowerCase().includes(query.toLowerCase()))
+  );
+
+  $("#grid").innerHTML = list.length ? list.map(p => `
+    <article class="p-card">
+      <div class="p-banner" style="background-color:${p.color}">
+        <div class="p-banner-top">
+          <span class="p-sku">${p.sku}</span>
+          <span class="p-type">${p.tipo}</span>
+        </div>
+        <div class="p-logo-box">${p.icon}</div>
+        <span class="p-watermark">${p.wm}</span>
+      </div>
+      <div class="p-body">
+        <h3 class="p-title">${p.n}</h3>
+        <ul class="p-specs">
+          <li><span>PLATAFORMA</span><strong>${p.plataforma}</strong></li>
+          <li><span>VIGENCIA</span><strong>${p.duracion}</strong></li>
+          <li><span>REGIÓN</span><strong>${p.region}</strong></li>
+        </ul>
+        <div class="p-foot">
+          <div>
+            <span class="p-price-label">PRECIO COP</span>
+            <div class="p-price">${fmt(p.p)}</div>
+          </div>
+          <div class="p-actions">
+            <button class="btn-direct" data-buy="${p.id}" title="Comprar ahora por WhatsApp">⚡</button>
+            <button class="btn-add" data-id="${p.id}">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  `).join("") : `<div style="background:var(--surface);border:var(--border);box-shadow:var(--shadow);padding:48px;grid-column:1/-1;text-align:center;font-family:var(--mono);font-weight:800">NO SE ENCONTRARON PRODUCTOS PARA "${query.toUpperCase()}"</div>`;
+}
+
+function renderCart() {
+  const q = cart.reduce((a, i) => a + i.q, 0);
+  const tot = cart.reduce((a, i) => a + i.q * P.find(p => p.id === i.id).p, 0);
+  $("#count").textContent = q;
+  $("#total").textContent = fmt(tot);
+  $("#pay").disabled = !q;
+
+  $("#items").innerHTML = cart.length ? cart.map(i => {
+    const p = P.find(x => x.id === i.id);
+    return `
+      <div class="cart-item">
+        <div class="ci-info">
+          <b>${p.n}</b>
+          <span>${fmt(p.p)} c/u · ${p.sku}</span>
+          <div class="ci-qty">
+            <button data-d="-1" data-id="${p.id}">−</button>
+            <span>${i.q}</span>
+            <button data-d="1" data-id="${p.id}">+</button>
+          </div>
+        </div>
+        <button data-rm="${p.id}" style="font-family:var(--mono);font-size:0.75rem;font-weight:800;color:var(--accent);align-self:flex-start">✕ QUITAR</button>
+      </div>
+    `;
+  }).join("") : `<p style="font-family:var(--mono);font-size:0.85rem;font-weight:800;color:var(--muted);text-align:center;margin-top:50px">// TU CARRITO ESTÁ VACÍO</p>`;
+  save();
+}
+
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toast.h);
+  toast.h = setTimeout(() => t.classList.remove("on"), 1800);
+}
+
+function toggleCart(open) {
+  $("#panel").classList.toggle("on", open);
+  $("#ov").classList.toggle("on", open);
+}
+
+function setFilter(f) {
+  filter = f;
+  document.querySelectorAll(".f-btn").forEach(b => b.classList.toggle("on", b.dataset.f === f));
+  renderGrid();
+}
+
+$("#search").addEventListener("input", e => { query = e.target.value; renderGrid(); });
+
+$("#grid").addEventListener("click", e => {
+  const addBtn = e.target.closest(".btn-add");
+  const buyBtn = e.target.closest(".btn-direct");
+
+  if (addBtn) {
+    const id = +addBtn.dataset.id;
+    const item = cart.find(i => i.id === id);
+    item ? item.q++ : cart.push({id, q: 1});
+    renderCart();
+    toast("✔ AGREGADO AL PEDIDO");
+  }
+
+  if (buyBtn) {
+    const p = P.find(x => x.id === +buyBtn.dataset.buy);
+    const msg = `Hola Edisson, quiero comprar directamente este producto en KODEX:\n\n• ${p.n} [${p.sku}]\n• Precio: ${fmt(p.p)} COP\n\n¿Me indicas cómo realizar el pago?`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+  }
+});
+
+$("#items").addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  if (btn.dataset.rm) {
+    cart = cart.filter(i => i.id !== +btn.dataset.rm);
+  } else if (btn.dataset.d) {
+    const item = cart.find(i => i.id === +btn.dataset.id);
+    item.q += +btn.dataset.d;
+    if (item.q < 1) cart = cart.filter(i => i !== item);
+  }
+  renderCart();
+});
+
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest(".f-btn");
+  if (b) setFilter(b.dataset.f);
+});
+
+document.querySelectorAll("a[data-f]").forEach(a => {
+  a.addEventListener("click", () => {
+    setFilter(a.dataset.f);
+    $("#mobMenu").classList.remove("open");
+  });
+});
+
+$("#openCart").onclick = () => toggleCart(true);
+$("#closeCart").onclick = $("#ov").onclick = () => toggleCart(false);
+$("#mobBtn").onclick = () => $("#mobMenu").classList.toggle("open");
+
+const legalModal = $("#legalModal");
+document.querySelectorAll(".open-legal").forEach(el => {
+  el.addEventListener("click", e => {
+    e.preventDefault();
+    legalModal.classList.add("on");
+    $("#mobMenu").classList.remove("open");
+  });
+});
+$("#closeLegal").onclick = () => legalModal.classList.remove("on");
+legalModal.addEventListener("click", e => { if (e.target === legalModal) legalModal.classList.remove("on"); });
+
+$("#pay").onclick = () => {
+  if (!cart.length) return;
+  const lines = cart.map(i => {
+    const p = P.find(x => x.id === i.id);
+    return `• ${p.n} (x${i.q}) — ${fmt(p.p * i.q)}`;
+  });
+  const total = cart.reduce((a, i) => a + i.q * P.find(p => p.id === i.id).p, 0);
+  const msg = `Hola Edisson, quiero realizar este pedido en KODEX:\n\n${lines.join("\n")}\n\nTOTAL A PAGAR: ${fmt(total)} COP\n\n¿Me compartes los datos de pago?`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+};
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    toggleCart(false);
+    legalModal.classList.remove("on");
+  }
+});
+
+renderGrid();
+renderCart();
+</script>
+</body>
+</html>
